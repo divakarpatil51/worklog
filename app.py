@@ -7,32 +7,47 @@ app = Flask(__name__)
 CORS(app)
 data = [
         {
-            "name": "a",
-            "lastname": "b",
-            "id": str(uuid.uuid4())
+            "worklogType": "Remote",
+            "project": "Backend",
+            "date": "24-05-2017",
+            "comment": "Remote"
         },
         {
-            "name": "ad",
-            "lastname": "c",
-            "id": str(uuid.uuid4())
+            "worklogType": "Office",
+            "project": "Backend",
+            "date": "23-05-2017",
+            "comment": "Remote"
         },
         {
-            "name": "wd",
-            "lastname": "cq",
-            "id": str(uuid.uuid4())
-        }
+            "worklogType": "Sick",
+            "project": "Backend",
+            "date": "26-05-2017",
+            "comment": "Remote"
+        },
+        {
+            "worklogType": "Vacation",
+            "project": "Backend",
+            "date": "27-05-2017",
+            "comment": "Remote"
+        },
+        {
+            "worklogType": "Holiday",
+            "project": "Backend",
+            "date": "28-05-2017",
+            "comment": "Remote"
+        },
     ]
 
-
-@app.route("/user", methods=["GET"])
-def list_users():
-    logging.info("Fetching users")
+BASE_PATH = "/api/v1/users/<user_id>/worklog"
+@app.route(BASE_PATH, methods=["GET"])
+def list_users(user_id):
+    logging.info("Fetching Worklogs")
     return jsonify(data)
 
 
-@app.route("/user", methods=["POST"])
-def add_users():
-    logging.info("Adding user")
+@app.route(BASE_PATH, methods=["POST"])
+def add_users(user_id):
+    logging.info("Adding Worklog")
     _id = str(uuid.uuid4())
     user = request.get_json()
     logging.info(user)
@@ -41,14 +56,14 @@ def add_users():
         **user
     }
     data.append(_user)
-    return jsonify(data)
+    return jsonify(_user)
 
 
-@app.route("/user/<user_id>", methods=["DELETE"])
-def delete_user(user_id):
-    logging.info("Delete user")
+@app.route(BASE_PATH + "/<worklog_id>", methods=["DELETE"])
+def delete_user(user_id, worklog_id):
+    logging.info("Delete Worklog")
     for user in data[:]:
-        if user_id == user.get('id'):
+        if worklog_id == user.get('id'):
             data.remove(user)
             break
 
