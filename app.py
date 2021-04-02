@@ -7,30 +7,35 @@ app = Flask(__name__)
 CORS(app)
 data = [
         {
+            "id": str(uuid.uuid4()),
             "worklogType": "Remote",
             "project": "Backend",
             "date": "24-05-2017",
             "comment": "Remote"
         },
         {
+            "id": str(uuid.uuid4()),
             "worklogType": "Office",
             "project": "Backend",
             "date": "23-05-2017",
             "comment": "Remote"
         },
         {
+            "id": str(uuid.uuid4()),
             "worklogType": "Sick",
             "project": "Backend",
             "date": "26-05-2017",
             "comment": "Remote"
         },
         {
+            "id": str(uuid.uuid4()),
             "worklogType": "Vacation",
             "project": "Backend",
             "date": "27-05-2017",
             "comment": "Remote"
         },
         {
+            "id": str(uuid.uuid4()),
             "worklogType": "Holiday",
             "project": "Backend",
             "date": "28-05-2017",
