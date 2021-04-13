@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: worklog-ingress
+spec:
+  backend:
+    serviceName: worklog-ui
+    servicePort: 3000
+  rules:
+    - http:
+        paths:
+          - path: /api
+            backend:
+              serviceName: worklog-backend
+              servicePort: 5000

@@ -34,7 +34,7 @@ kind: Service
 metadata:
   name: worklog-backend
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: worklog-backend
   ports:
