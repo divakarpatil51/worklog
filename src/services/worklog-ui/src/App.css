@@ -1,0 +1,44 @@
+.login-form
+{
+  justify-content: center;
+  min-height: 92vh;
+  background-color:rgb(248, 242, 242);
+}
+
+.button-block{
+  width: 100%;
+}
+
+.login-background
+{
+  justify-content: center;
+  margin-top: 2%;
+  padding: 50px;
+  min-width: 40vh;
+}
+
+.create-account-form{
+  margin-top: 5%;
+  justify-content: center;
+  min-height: 30vh;
+  padding: 50px;
+}
+
+.create-account-background{
+  justify-content: center;
+  background-color:rgb(248, 242, 242);
+  min-height: 92vh;
+}
+
+.reset-password-background {
+  justify-content: center;
+  background-color:rgb(248, 242, 242);
+  min-height: 92vh;
+}
+
+.reset-password-form{
+  margin-top: 5%;
+  justify-content: center;
+  min-height: 30vh;
+  padding: 50px;
+}
