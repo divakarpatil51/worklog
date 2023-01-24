@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worklog-database
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: worklog-database
+  template:
+    metadata:
+      labels:
+        app: worklog-database
+    spec:
+      containers:
+      - image: postgres:10.4
+        name: worklog-database
+        ports:
+        - containerPort: 5432
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+          requests:
+            memory: 256Mi
+            cpu: "0.2"
